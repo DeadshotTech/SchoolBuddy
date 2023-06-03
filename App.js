@@ -8,8 +8,15 @@ import { ScrollView } from 'react-native-virtualized-view';
 export default function App() {
   return (
     <View style={styles.container}>
-      <WelcomeUser />
-      <NavigatorIconsPanel/>
+      <View style={styles.topView}>
+        <WelcomeUser />
+      </View>
+      <View style={styles.scrollableContent}>
+
+      </View>
+      <View style={styles.bottomView}>
+        <NavigatorIconsPanel/>
+      </View>
     </View>
   );
 }
@@ -24,8 +31,6 @@ const styles = StyleSheet.create({
   },
   scrollableContent: {
     flex: 8,
-    flexGrow: 1,
-    paddingVertical: 10
   },
   bottomView: {
     flex: 1
