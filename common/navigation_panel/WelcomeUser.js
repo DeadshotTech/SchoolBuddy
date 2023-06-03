@@ -20,7 +20,7 @@ const WelcomeUser = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: '10%',
+        paddingVertical: 5,
     },
     welcomeDisplayContainer: {
         alignItems: 'center',

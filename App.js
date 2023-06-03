@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 
 import NavigatorIconsPanel from './common/navigation_panel/NavigatorIconsPanel';
 import WelcomeUser from './common/navigation_panel/WelcomeUser';
@@ -8,6 +8,7 @@ import { ScrollView } from 'react-native-virtualized-view';
 export default function App() {
   return (
     <View style={styles.container}>
+      <StatusBar/>
       <View style={styles.topView}>
         <WelcomeUser />
       </View>
@@ -27,12 +28,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   topView: {
-    flex: 1
+    flex: .75,
   },
   scrollableContent: {
     flex: 8,
   },
   bottomView: {
-    flex: 1
+    flex: 1,
   },
 });

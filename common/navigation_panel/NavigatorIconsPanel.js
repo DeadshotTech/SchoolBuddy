@@ -3,18 +3,13 @@ import { View, FlatList, Text, Image, StyleSheet } from 'react-native';
 
 const IconScreen = () => {
     const icons = [
-        { name: 'A', image: require('./image.png') },
-        { name: 'B', image: require('./image.png') },
-        { name: 'C', image: require('./image.png') },
-        { name: 'D', image: require('./image.png') },
-        { name: 'E', image: require('./image.png') },
-        { name: 'F', image: require('./image.png') },
-        { name: 'G', image: require('./image.png') },
-        { name: 'H', image: require('./image.png') },
-        { name: 'I', image: require('./image.png') },
-        { name: 'J', image: require('./image.png') },
-        { name: 'K', image: require('./image.png') },
-        { name: 'L', image: require('./image.png') },
+        { name: 'Home', image: require('./image.png') },
+        { name: 'Attendance', image: require('./image.png') },
+        { name: 'Homework', image: require('./image.png') },
+        { name: 'Revise', image: require('./image.png') },
+        { name: 'Explore', image: require('./image.png') },
+        { name: 'Results', image: require('./image.png') },
+        { name: 'Store', image: require('./image.png') },
     ];
 
     const renderItem = ({ item }) => (
@@ -39,10 +34,12 @@ const IconScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingVertical: 5,
     },
     iconContainer: {
         alignItems: 'center',
         marginHorizontal: 5,
+        paddingHorizontal: 5
     },
     iconImage: {
         width: 50,
