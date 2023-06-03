@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, FlatList, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-const WelcomeUser = () => {
+const WelcomeUserPanel = () => {
     const icons = { name: 'Vishal Gautam', image: require('./image.png') };
 
     return (
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WelcomeUser;
+export default WelcomeUserPanel;
