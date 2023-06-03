@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, FlatList, Text, Image, StyleSheet } from 'react-native';
+import { View, FlatList, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const IconScreen = () => {
+const NavigatorIconsPanel = ({handleIconClick}) => {
     const icons = [
         { name: 'Home', image: require('./image.png') },
         { name: 'Attendance', image: require('./image.png') },
@@ -13,10 +13,12 @@ const IconScreen = () => {
     ];
 
     const renderItem = ({ item }) => (
-        <View style={styles.iconContainer}>
-            <Image source={item.image} style={styles.iconImage} />
-            <Text style={styles.iconText}>{item.name}</Text>
-        </View>
+        <TouchableOpacity onPress={() => handleIconClick(item.name)}>
+            <View style={styles.iconContainer}>
+                <Image source={item.image} style={styles.iconImage} />
+                <Text style={styles.iconText}>{item.name}</Text>
+            </View>
+        </TouchableOpacity>
     );
 
     return (
@@ -52,4 +54,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default IconScreen;
+export default NavigatorIconsPanel;

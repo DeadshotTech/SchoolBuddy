@@ -1,21 +1,24 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const MainContentPanel = () => {
+const MainContentPanel = (props) => {
 
-    const getMainPanelView = () => {
-        const userInput = 'value2';
-        switch (userInput) {
-          case 'value1':
-            return <View style={styles.view1}><Text>View 1</Text></View>;
-          case 'value2':
-            return <View style={styles.view2}><Text>View 2</Text></View>;
-          case 'value3':
-            return <View style={styles.view3}><Text>View 3</Text></View>;
-          case 'value4':
-            return <View style={styles.view4}><Text>View 4</Text></View>;
-          case 'value5':
-            return <View style={styles.view5}><Text>View 5</Text></View>;
+    const getMainPanelView = (mainContentIdentifier) => {
+        switch (mainContentIdentifier) {
+          case 'Home':
+            return <View style={styles.view1}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Attendance':
+            return <View style={styles.view2}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Homework':
+            return <View style={styles.view3}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Revise':
+            return <View style={styles.view4}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Explore':
+            return <View style={styles.view5}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Results':
+            return <View style={styles.view5}><Text>{mainContentIdentifier}</Text></View>;
+          case 'Store':
+            return <View style={styles.view5}><Text>{mainContentIdentifier}</Text></View>;
           default:
             return null;
         }
@@ -23,7 +26,7 @@ const MainContentPanel = () => {
 
     return (
         <View style={styles.container}>
-            {getMainPanelView()}
+            {getMainPanelView(props.mainContentIdentifier)}
         </View>
     );
 };
