@@ -40,9 +40,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: '10%',
-    },
-    iconListContainer: {
-        paddingHorizontal: 10,
+        paddingBottom: '2%',
     },
     iconContainer: {
         alignItems: 'center',
