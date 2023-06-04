@@ -1,40 +1,26 @@
-# Bitbucket Pipelines Template to build, test your Android Application.
-
-# This template contains 3 parallel steps to build Android application, run Android code scanning tool and run unit tests.
-# For more details see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
-
-# Docker for Android SDK 30 with pre-installed build tools and emulator image.
-# Note: This docker image is created and maintained by a non official third party. For more details see: https://hub.docker.com/r/androidsdk/android-30
-image: androidsdk/android-30
+# bitbucket-pipelines.yml
 
 pipelines:
-  default:                # pipeline definition for all branches
-    - parallel:           # running a set of steps at the same time https://support.atlassian.com/bitbucket-cloud/docs/set-up-or-run-parallel-steps/
-        - step:           # step to build Android debug application
-            name: Android Debug Application
-            caches:       # caching speed up subsequent execution https://support.atlassian.com/bitbucket-cloud/docs/cache-dependencies/
-              - gradle
-            script:
-              - ./gradlew assembleDebug
-            artifacts:
-              - app/build/outputs/**        # artifacts are files that are produced by a step https://support.atlassian.com/bitbucket-cloud/docs/use-artifacts-in-steps/
-        - step:           # step to run lint (Android code scanning tool)
-            name: Lint
-            caches:       # caching speed up subsequent execution https://support.atlassian.com/bitbucket-cloud/docs/cache-dependencies/
-              - gradle
-            script:
-              - ./gradlew lint
-            artifacts:
-              - app/build/reports/**        # artifacts are files that are produced by a step https://support.atlassian.com/bitbucket-cloud/docs/use-artifacts-in-steps/
-        - step:           # step to run unit tests
-            name: Unit Tests
-            caches:
-              - gradle    # caching speed up subsequent execution https://support.atlassian.com/bitbucket-cloud/docs/cache-dependencies/
-            script:
-              - ./gradlew testDebugUnitTest # test reporting is automatically enabled https://support.atlassian.com/bitbucket-cloud/docs/test-reporting-in-pipelines/
-        - step:
-            name: Deploy to test
-            deployment: test
-            # trigger: manual  # Uncomment to make this a manual deployment.
-            script:
-             - echo "Deploying to test environment"
+  default:
+    - step:
+        name: Build and Deploy
+        image: openjdk:8
+        caches:
+          - gradle
+        script:
+          - apt-get update && apt-get install -y build-essential
+          - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+          - apt-get install -y nodejs
+          - curl -sL https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip -o sdk-tools.zip
+          - unzip -q sdk-tools.zip -d android-sdk
+          - export ANDROID_SDK_ROOT=$PWD/android-sdk
+          - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT --licenses
+          - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT --update
+          - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platforms;android-29"
+          - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT "build-tools;29.0.3"
+          - npm install -g react-native-cli
+          - npm install
+          - cd android && ./gradlew clean assembleRelease
+          - cd ..
+        artifacts:
+          - android/app/build/outputs/**/*.apk
