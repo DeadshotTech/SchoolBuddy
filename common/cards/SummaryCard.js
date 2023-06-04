@@ -60,17 +60,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
       },
       summarizedScoreMessageText: {
-        fontSize: 20,
+        fontSize: 18,
       },
       weeklySummary: {
-        flex: 1.5,
+        flex: 2,
         justifyContent: 'center',
         
       },
       summaryIdentifier: {
         flex: 2,
         justifyContent: 'flex-end',
-        color: '#FFFFFF',
         alignItems: 'flex-end'
       },
       weeklySummaryText: {
@@ -80,6 +79,7 @@ const styles = StyleSheet.create({
       summaryIdentifierText: {
         fontSize: 24,
         fontWeight: 'bold',
+        color: '#b3b3ff',
       }
 });
 

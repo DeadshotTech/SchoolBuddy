@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList, Text } from 'react-native';
 import SummaryCard from '../common/cards/SummaryCard';
 
 const summaryData = [
-    {name: 'Attendance', score: '12/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month'},
+    {name: 'Attendance', score: '11/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month'},
     {name: 'Homework', score: '4/12', scoreMessage: 'Completed',  weeklySummary: '2 Due in 13 days'},
     {name: 'Homework1', score: '4/12', scoreMessage: 'Attended',  weeklySummary: '2 Due in 13 days'},
     {name: 'Homework2', score: '4/12', scoreMessage: 'Attended',  weeklySummary: '2 Due in 13 days'},
