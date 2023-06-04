@@ -8,7 +8,7 @@ const AttendanceScreen = () => {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.attendanceHeaderMessageContainer}>
-                <Text style={styles.attendanceHeaderMessage}>Good Job 👍 You have 100% attendance this week</Text>
+                <Text style={styles.attendanceHeaderMessage}>Good Job 👍 You have 100% attendance this month</Text>
             </View>
             <View style={styles.calendar}>
                 <CalendarRangeSelector />

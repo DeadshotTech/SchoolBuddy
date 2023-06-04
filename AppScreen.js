@@ -8,8 +8,8 @@ import MainContentPanel from './common/navigation_panel/MainContentPanel';
 const AppScreen = () => {
     const [mainContentIdentifier, setMainContentIdentifier] = useState('Home');
 
-    const changeMainContent = (iconIdentifier) => {
-        setMainContentIdentifier(iconIdentifier);
+    const changeMainContent = (screenIdentifier) => {
+        setMainContentIdentifier(screenIdentifier);
     };
 
     return (
@@ -18,7 +18,7 @@ const AppScreen = () => {
                 <WelcomeUserPanel />
             </View>
             <View style={styles.mainContent}>
-                <MainContentPanel mainContentIdentifier={mainContentIdentifier} />
+                <MainContentPanel mainContentIdentifier={mainContentIdentifier} handleSummaryClick={changeMainContent} />
             </View>
             <View style={styles.bottomView}>
                 <NavigatorIconsPanel handleIconClick={changeMainContent}/>

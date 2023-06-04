@@ -1,26 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const SummaryCard = (params) => {
 
     return (
         <View style={styles.container}>
-        <View style={styles.leftContainer}>
-            <View style={styles.summarizedScore}>
-                <Text style={styles.summarizedScoreText}>{params.summary.score}</Text>
-            </View>
-            <View style={styles.summarizedScoreMessage}>
-                <Text style={styles.summarizedScoreMessageText}>{params.summary.scoreMessage}</Text>
-            </View>
-        </View>
-            <View style={styles.rightContainer}>
-                <View style={styles.summaryIdentifier}>
-                    <Text style={styles.summaryIdentifierText}>{params.summary.name}</Text>
+            <TouchableOpacity onPress={() => params.handleSummaryClick(params.summary.name)}>
+                <View style={styles.leftContainer}>
+                    <View style={styles.summarizedScore}>
+                        <Text style={styles.summarizedScoreText}>{params.summary.score}</Text>
+                    </View>
+                    <View style={styles.summarizedScoreMessage}>
+                        <Text style={styles.summarizedScoreMessageText}>{params.summary.scoreMessage}</Text>
+                    </View>
                 </View>
-                <View style={styles.weeklySummary}>
-                    <Text style={styles.weeklySummaryText}>{params.summary.weeklySummary}</Text>
-                </View>
-            </View>
+                    <View style={styles.rightContainer}>
+                        <View style={styles.summaryIdentifier}>
+                            <Text style={styles.summaryIdentifierText}>{params.summary.name}</Text>
+                        </View>
+                        <View style={styles.weeklySummary}>
+                            <Text style={styles.weeklySummaryText}>{params.summary.weeklySummary}</Text>
+                        </View>
+                    </View>
+            </TouchableOpacity>
         </View>
     );
 };

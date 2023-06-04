@@ -4,20 +4,22 @@ import SummaryCard from '../common/cards/SummaryCard';
 import ProductInformationCard from '../common/cards/ProductInformationCard';
 
 const homePageData = [
-    {name: 'Attendance', score: '11/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month\n2 upcoming holidays', dataCategory: 'SUMMARY'},
-    {name: 'Homework', score: '4/12', scoreMessage: 'Completed',  weeklySummary: '2 Due in 13 days\n1 completed in this week', dataCategory: 'SUMMARY'},
-    {name: 'Classes', weeklySummary: 'Revise upto 6 subjects\n178 revisions till now', dataCategory: 'PRODUCT'},
-    {name: 'Routine',  weeklySummary: '2 submissions this week', dataCategory: 'PRODUCT'},
-    {name: 'Reminders' ,  weeklySummary: '0 reminders for today', dataCategory: 'PRODUCT'},
-    {name: 'Explore',  weeklySummary: 'Learn from 7843 schools\n45678 topics to learn', dataCategory: 'PRODUCT'},
-    {name: 'Store',  weeklySummary: 'Buy stationary\nGet merchandise', dataCategory: 'PRODUCT'},
+    {id: 'Attendance', name: 'Attendance', score: '11/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month\n2 upcoming holidays', dataCategory: 'SUMMARY'},
+    {id: 'Homework', name: 'Homework', score: '4/12', scoreMessage: 'Completed',  weeklySummary: '2 Due in 13 days\n1 completed in this week', dataCategory: 'SUMMARY'},
+    {id: 'Revise', name: 'Classes', weeklySummary: 'Revise upto 6 subjects\n178 revisions till now', dataCategory: 'PRODUCT'},
+    {id: 'Home', name: 'Routine',  weeklySummary: '2 submissions this week', dataCategory: 'PRODUCT'},
+    {id: 'Home', name: 'Reminders' ,  weeklySummary: '0 reminders for today', dataCategory: 'PRODUCT'},
+    {id: 'Explore', name: 'Explore',  weeklySummary: 'Learn from 7843 schools\n45678 topics to learn', dataCategory: 'PRODUCT'},
+    {id: 'Store', name: 'Store',  weeklySummary: 'Buy stationary\nGet merchandise', dataCategory: 'PRODUCT'},
 ];
 
-const renderSummary = ({ item }) => (
+const HomepageScreen = (props) => {
+
+    const renderSummary = ({ item }) => (
         <View style={styles.summaryCardContainer}>
             {
             item.dataCategory === 'SUMMARY' &&
-                <SummaryCard summary={item} />
+                <SummaryCard summary={item} handleSummaryClick={props.handleSummaryClick} />
             }
             {
             item.dataCategory === 'PRODUCT' &&
@@ -25,8 +27,6 @@ const renderSummary = ({ item }) => (
             }
         </View>
 );
-
-const HomepageScreen = () => {
 
     return (
         <View style={styles.container}>

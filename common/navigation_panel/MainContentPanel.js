@@ -10,7 +10,7 @@ const MainContentPanel = (props) => {
             // case 'Home':
             //   return <View style={styles.view1}><Text>{mainContentIdentifier}</Text></View>;
           case 'Home':
-            return <View style={styles.homepageContainer}><HomepageScreen/></View>;
+            return <View style={styles.homepageContainer}><HomepageScreen handleSummaryClick={props.handleSummaryClick}/></View>;
           case 'Attendance':
             return <View style={styles.attendanceContainer}><AttendanceScreen/></View>;
           case 'Homework':
