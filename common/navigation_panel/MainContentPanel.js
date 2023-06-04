@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import HomepageScreen from '../../home_page/HomepageScreen';
 
 const MainContentPanel = (props) => {
 
     const getMainPanelView = (mainContentIdentifier) => {
         switch (mainContentIdentifier) {
+            // case 'Home':
+            //   return <View style={styles.view1}><Text>{mainContentIdentifier}</Text></View>;
           case 'Home':
-            return <View style={styles.view1}><Text>{mainContentIdentifier}</Text></View>;
+            return <View style={styles.view1}><HomepageScreen/></View>;
           case 'Attendance':
             return <View style={styles.view2}><Text>{mainContentIdentifier}</Text></View>;
           case 'Homework':
@@ -35,9 +38,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingVertical: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'stretch',
     },
+    view1: {
+        flex: 1,
+    }
 });
 
 export default MainContentPanel;
