@@ -24,3 +24,9 @@ pipelines:
           - cd ..
         artifacts:
           - android/app/build/outputs/**/*.apk
+   - pipe: sonarsource/sonarcloud-scan:1.4.0
+  # variables:
+  #   SONAR_TOKEN: '<string>'  # Optional
+  #   EXTRA_ARGS: '<string>'  # Optional
+  #   SONAR_SCANNER_OPTS: '<string>'  # Optional
+  #   DEBUG: '<boolean>'  # Optional
