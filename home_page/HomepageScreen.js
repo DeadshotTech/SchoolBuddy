@@ -1,27 +1,37 @@
 import React from 'react';
-import { View, StyleSheet, FlatList, Text } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import SummaryCard from '../common/cards/SummaryCard';
+import ProductInformationCard from '../common/cards/ProductInformationCard';
 
-const summaryData = [
-    {name: 'Attendance', score: '11/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month'},
-    {name: 'Homework', score: '4/12', scoreMessage: 'Completed',  weeklySummary: '2 Due in 13 days'},
-    {name: 'Homework1', score: '4/12', scoreMessage: 'Attended',  weeklySummary: '2 Due in 13 days'},
-    {name: 'Homework2', score: '4/12', scoreMessage: 'Attended',  weeklySummary: '2 Due in 13 days'},
-    {name: 'Homework3', score: '4/12', scoreMessage: 'Attended',  weeklySummary: '2 Due in 13 days'}
+const homePageData = [
+    {id: 'Attendance', name: 'Attendance', score: '11/12', scoreMessage: 'Attended', weeklySummary: '1 Leave in this month\n2 upcoming holidays', dataCategory: 'SUMMARY'},
+    {id: 'Homework', name: 'Homework', score: '4/12', scoreMessage: 'Completed',  weeklySummary: '2 Due in 13 days\n1 completed in this week', dataCategory: 'SUMMARY'},
+    {id: 'Revise', name: 'Classes', weeklySummary: 'Revise upto 6 subjects\n178 revisions till now', dataCategory: 'PRODUCT'},
+    {id: 'Home', name: 'Routine',  weeklySummary: '2 submissions this week', dataCategory: 'PRODUCT'},
+    {id: 'Home', name: 'Reminders' ,  weeklySummary: '0 reminders for today', dataCategory: 'PRODUCT'},
+    {id: 'Explore', name: 'Explore',  weeklySummary: 'Learn from 7843 schools\n45678 topics to learn', dataCategory: 'PRODUCT'},
+    {id: 'Store', name: 'Store',  weeklySummary: 'Buy stationary\nGet merchandise', dataCategory: 'PRODUCT'},
 ];
 
-const renderSummary = ({ item }) => (
+const HomepageScreen = (props) => {
+
+    const renderSummary = ({ item }) => (
         <View style={styles.summaryCardContainer}>
-            <SummaryCard summary={item} />
+            {
+            item.dataCategory === 'SUMMARY' &&
+                <SummaryCard summary={item} handleSummaryClick={props.handleSummaryClick} />
+            }
+            {
+            item.dataCategory === 'PRODUCT' &&
+                <ProductInformationCard summary={item} handleSummaryClick={props.handleSummaryClick} />
+            }
         </View>
 );
-
-const HomepageScreen = () => {
 
     return (
         <View style={styles.container}>
             <FlatList
-                data={summaryData}
+                data={homePageData}
                 renderItem={renderSummary}
                 keyExtractor={(item) => item.name}
                 vertical
@@ -33,7 +43,6 @@ const HomepageScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingVertical: 5,
         width: '100%',
     },
     summaryCardContainer: {

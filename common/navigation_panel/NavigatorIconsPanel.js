@@ -2,13 +2,13 @@ import React from 'react';
 import { View, FlatList, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const icons = [
-    { name: 'Home', image: require('./image.png') },
-    { name: 'Attendance', image: require('./image.png') },
-    { name: 'Homework', image: require('./image.png') },
-    { name: 'Revise', image: require('./image.png') },
-    { name: 'Explore', image: require('./image.png') },
-    { name: 'Results', image: require('./image.png') },
-    { name: 'Store', image: require('./image.png') },
+    { name: 'Home', image: require('./homework.png') },
+    { name: 'Attendance', image: require('./homework.png') },
+    { name: 'Homework', image: require('./homework.png') },
+    { name: 'Revise', image: require('./homework.png') },
+    { name: 'Explore', image: require('./homework.png') },
+    { name: 'Results', image: require('./homework.png') },
+    { name: 'Store', image: require('./homework.png') },
 ];
 
 
@@ -23,7 +23,7 @@ const NavigatorIconsPanel = ({handleIconClick}) => {
             </View>
         </TouchableOpacity>
     );
-    
+
     return (
         <View style={styles.container}>
             <FlatList
