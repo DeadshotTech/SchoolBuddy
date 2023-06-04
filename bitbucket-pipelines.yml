@@ -35,7 +35,7 @@ pipelines:
          script:
            - pipe: snyk/snyk-scan:0.5.4
               variables:
-              SNYK_TOKEN: "ae3ebf2a-9171-4d3f-86d5-888e0fcb003f"
+                SNYK_TOKEN: "ae3ebf2a-9171-4d3f-86d5-888e0fcb003f"
     # LANGUAGE: "<string>" # Required unless SNYK_TEST_JSON_INPUT is set
     # IMAGE_NAME: "<string>" # Only required if LANGUAGE set to "docker"
     # CODE_INSIGHTS_RESULTS: "<boolean>" # Optional.
