@@ -23,7 +23,7 @@ const HomepageScreen = (props) => {
             }
             {
             item.dataCategory === 'PRODUCT' &&
-                <ProductInformationCard summary={item} />
+                <ProductInformationCard summary={item} handleSummaryClick={props.handleSummaryClick} />
             }
         </View>
 );

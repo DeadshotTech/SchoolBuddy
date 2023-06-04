@@ -1,22 +1,22 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const ProductInformationCard = (params) => {
 
     return (
-        <View style={styles.container}>
-          <View style={styles.leftContainer}>
-            <Image source={require('./homework.png')} style={styles.iconImage} />
+      <TouchableOpacity style={styles.container} onPress={() => params.handleSummaryClick(params.summary.id)}>
+        <View style={styles.leftContainer}>
+          <Image source={require('./homework.png')} style={styles.iconImage} />
+        </View>
+        <View style={styles.rightContainer}>
+          <View style={styles.summaryIdentifier}>
+              <Text style={styles.summaryIdentifierText}>{params.summary.name}</Text>
           </View>
-          <View style={styles.rightContainer}>
-              <View style={styles.summaryIdentifier}>
-                  <Text style={styles.summaryIdentifierText}>{params.summary.name}</Text>
-              </View>
-              <View style={styles.weeklySummary}>
-                  <Text style={styles.weeklySummaryText}>{params.summary.weeklySummary}</Text>
-              </View>
+          <View style={styles.weeklySummary}>
+              <Text style={styles.weeklySummaryText}>{params.summary.weeklySummary}</Text>
           </View>
         </View>
+      </TouchableOpacity>
     );
 };
 
