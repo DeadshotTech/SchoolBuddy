@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import HomepageScreen from '../../home_page/HomepageScreen';
+import AttendanceScreen from '../../attendance/AttendanceScreen';
 
 const MainContentPanel = (props) => {
 
@@ -9,9 +10,9 @@ const MainContentPanel = (props) => {
             // case 'Home':
             //   return <View style={styles.view1}><Text>{mainContentIdentifier}</Text></View>;
           case 'Home':
-            return <View style={styles.view1}><HomepageScreen/></View>;
+            return <View style={styles.homepageContainer}><HomepageScreen/></View>;
           case 'Attendance':
-            return <View style={styles.view2}><Text>{mainContentIdentifier}</Text></View>;
+            return <View style={styles.attendanceContainer}><AttendanceScreen/></View>;
           case 'Homework':
             return <View style={styles.view3}><Text>{mainContentIdentifier}</Text></View>;
           case 'Revise':
@@ -40,7 +41,10 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         alignItems: 'stretch',
     },
-    view1: {
+    homepageContainer: {
+        flex: 1,
+    },
+    attendanceContainer: {
         flex: 1,
     }
 });
