@@ -19,6 +19,8 @@ pipelines:
           - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT "platforms;android-29"
           - yes | $ANDROID_SDK_ROOT/cmdline-tools/bin/sdkmanager --sdk_root=$ANDROID_SDK_ROOT "build-tools;29.0.3"
           - npm install -g react-native-cli
+          - npm install -g firebase-tools
+          - firebase deploy --token "$FIREBASE_TOKEN"
           - npm install
           - cd android && ./gradlew clean assembleRelease
           - cd ..
