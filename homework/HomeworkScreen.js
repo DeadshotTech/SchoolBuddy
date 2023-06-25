@@ -12,7 +12,10 @@ const homeworkData = [
 
   const renderHomeworkData = ({ item }) => (
     <View style={styles.homeworkCardContainer}>
-        <Text style={styles.dateHeader}>{item.date}</Text>
+        <View style={styles.headerContainer}>
+            <Text style={styles.dateDueHeader}>{item.date}</Text>
+            <Text style={styles.dateHeader}>{item.date}</Text>
+        </View>
         <Text style={styles.subjectHeader}>{item.subject}</Text>
         <Text style={styles.contentHeader}>{item.content}</Text>
     </View>
@@ -43,10 +46,23 @@ const styles = StyleSheet.create({
         backgroundColor: '#f0f0f5',
         padding: 5,
     },
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    dateDueHeader: {
+        flex: 1,
+        fontSize: 16,
+        padding: 1,
+        fontWeight: '300',
+    },
     dateHeader: {
+      flex: 1,
       fontSize: 16,
       padding: 1,
       fontWeight: '200',
+      alignItems: 'center',
+      width: '100%',
     },
     contentHeader: {
         fontSize: 16,

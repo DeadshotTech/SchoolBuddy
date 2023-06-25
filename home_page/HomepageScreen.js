@@ -9,7 +9,7 @@ const homePageData = [
     {id: 'Revise', name: 'Classes', weeklySummary: 'Revise upto 6 subjects\n178 revisions till now', dataCategory: 'PRODUCT'},
     {id: 'Home', name: 'Routine',  weeklySummary: '2 submissions this week', dataCategory: 'PRODUCT'},
     {id: 'Home', name: 'Reminders' ,  weeklySummary: '0 reminders for today', dataCategory: 'PRODUCT'},
-    {id: 'Explore', name: 'Explore',  weeklySummary: 'Learn from 7843 schools\n45678 topics to learn', dataCategory: 'PRODUCT'},
+    {id: 'Explore', name: 'Explore',  weeklySummary: 'Learn from 784 schools\n45678 topics to learn', dataCategory: 'PRODUCT'},
     {id: 'Store', name: 'Store',  weeklySummary: 'Buy stationary\nGet merchandise', dataCategory: 'PRODUCT'},
 ];
 
