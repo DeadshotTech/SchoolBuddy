@@ -9,11 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@expo/webpack-config": "^18.0.1",
+    "@expo/webpack-config": "^18.1.0",
     "@paraboly/react-native-card": "github:Paraboly/react-native-card#expo",
-    "expo": "^46.0.21",
-    "expo-cli": "^4.3.0",
+    "expo": "^48.0.19",
+    "expo-cli": "^6.3.8",
     "expo-status-bar": "~1.4.4",
+    "moment": "^2.29.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.8",
@@ -23,7 +24,8 @@
     "react-native-web": "~0.18.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.22.5",
+    "npm-check-updates": "^16.10.13"
   },
   "private": true
 }
